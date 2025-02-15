@@ -17,6 +17,7 @@ services:
     ports:
       - 8888:8888
     volumes:
+      - ./.aws:/home/${APPUSER_NAME}/.aws
       - ./jupyter/requirements.txt:/home/${APPUSER_NAME}/requirements.txt
       - ./jupyter/notebooks:/home/${APPUSER_NAME}/notebooks
     user: ${APPUSER_NAME}
