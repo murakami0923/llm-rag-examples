@@ -29,4 +29,4 @@ langchain-ollama==0.2.2
 
 # Bedrock
 langchain-aws==0.2.12
-amazon-bedrock==0.0.5
+# amazon-bedrock==0.0.5 # profileを指定して接続できないため、無効化
