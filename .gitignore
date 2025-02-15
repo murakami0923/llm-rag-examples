@@ -182,3 +182,8 @@ docker-compose.yml
 ## .venv （デフォルトであったものから変更）
 .venv/*
 !.venv/.gitkeep
+
+## jupyter
+### 出力先
+jupyter/notebooks/output/*
+!jupyter/notebooks/output/.gitkeep
