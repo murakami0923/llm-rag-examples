@@ -54,13 +54,9 @@ RUN ls -l /home/
 #================================================================================
 # アプリケーション実行ユーザーのホームディレクトリにアップロード、所有者変更
 #================================================================================
-# requirements.txt
-COPY ./jupyter/requirements.txt /home/${APPUSER_NAME}/requirements.txt
-RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/requirements.txt
-
-# jupyter.sh
-COPY ./jupyter/jupyter.sh /home/${APPUSER_NAME}/jupyter.sh
-RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/jupyter.sh
+# startup.sh
+COPY ./jupyter/startup.sh /home/${APPUSER_NAME}/startup.sh
+RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/startup.sh
 
 #================================================================================
 # アプリケーション実行ユーザーに切り替え
@@ -68,17 +64,9 @@ RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/jupyter.sh
 USER ${APPUSER_NAME}
 
 #================================================================================
-# pipパッケージインストール
-#================================================================================
-RUN python -m venv ~/.venv/
-RUN . ~/.venv/bin/activate && pip install --upgrade pip==${PIP_VERSION}
-RUN . ~/.venv/bin/activate && pip install -r ~/requirements.txt
-
-#================================================================================
 # 起動スクリプトコピー
 #================================================================================
-RUN ls -l ~/
-RUN chmod a+x ~/jupyter.sh
+RUN chmod a+x ~/startup.sh
 
 #================================================================================
 # 結果出力
@@ -88,9 +76,3 @@ RUN echo "ビルドが完了しました。"
 RUN echo "--------------------------------------------------"
 RUN echo "pythonバージョン："
 RUN python -V
-RUN echo "--------------------------------------------------"
-RUN echo "pipバージョン："
-RUN . ~/.venv/bin/activate && pip -V
-RUN echo "--------------------------------------------------"
-RUN echo "インストールされたpipパッケージ"
-RUN . ~/.venv/bin/activate && pip freeze
