@@ -14,7 +14,7 @@ japanize-matplotlib==1.1.3
 # LangGraphで必要なもの（2025/01/15 ハンズオン）
 langchain==0.3.14
 # langchain-groq==0.2.3 # Groqは使わないのでコメントアウト
-# langchain-community==0.3.14 # 使うかどうかわからないのでコメントアウト
+langchain-community==0.3.14 # PyPDFLoader, PyMuPDFLoaderをインポートする際に必要と判明したので有効化
 langchain-huggingface==0.1.2
 langgraph==0.2.64
 PyMuPDF==1.25.2
