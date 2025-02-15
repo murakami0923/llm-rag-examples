@@ -8,7 +8,6 @@ services:
         - APPUSER_GID=${APPUSER_GID}
         - APPUSER_NAME=${APPUSER_NAME}
         - PYTHON_VERSION=${PYTHON_VERSION}
-        - PIP_VERSION=${PIP_VERSION}
     image: llm-rag-examples-jupyter:0.0.1
     container_name: llm-rag-examples-jupyter
     hostname: llm-rag-examples-jupyter
@@ -20,10 +19,19 @@ services:
       - ./.aws:/home/${APPUSER_NAME}/.aws
       - ./jupyter/requirements.txt:/home/${APPUSER_NAME}/requirements.txt
       - ./jupyter/notebooks:/home/${APPUSER_NAME}/notebooks
+      - ./jupyter/.venv:/home/${APPUSER_NAME}/.venv
     user: ${APPUSER_NAME}
     environment:
       - APPUSER_NAME=${APPUSER_NAME}
       - AWS_PROFILE=${AWS_PROFILE}
+      - PIP_VERSION=${PIP_VERSION}
     command:
-      - /home/${APPUSER_NAME}/jupyter.sh
+      - /home/${APPUSER_NAME}/startup.sh
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     
