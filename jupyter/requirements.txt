@@ -1,3 +1,6 @@
+# pipパッケージ削除用
+pip-autoremove==0.10.0
+
 # JupyterLab
 jupyterlab==4.3.4
 jupyterlab-lsp==5.1.0
