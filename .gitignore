@@ -171,6 +171,10 @@ cython_debug/
 .pypirc
 
 # 以下、追加
+## Docker Compose定義
+docker-compose.yml
+# ※gpu, cpuのファイルを管理しているため
+
 ## .aws
 .aws/*
 !.aws/.gitkeep
