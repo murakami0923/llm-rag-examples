@@ -169,3 +169,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# 以下、追加
+## .aws
+.aws/*
+!.aws/.gitkeep
+
+

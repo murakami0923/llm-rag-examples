@@ -1,0 +1,96 @@
+FROM ubuntu:24.04
+
+ARG APPUSER_UID
+ARG APPUSER_GID
+ARG APPUSER_NAME
+ARG PYTHON_VERSION
+ARG PIP_VERSION
+
+# aptパッケージ更新
+RUN apt update
+RUN apt upgrade -y
+
+#================================================================================
+# pythonインストール
+#================================================================================
+# pipをaptでインストール
+RUN apt install -y python3-pip
+
+# インストールしたらバージョンを確認
+RUN pip3 -V
+
+# pip 22.0.2 from /usr/lib/python3/dist-packages/pip (python 3.10)
+# のように、エラーなどにならず、バージョンが表示されれば成功です。
+
+# リポジトリ追加
+RUN apt install -y software-properties-common
+RUN add-apt-repository --yes ppa:deadsnakes/ppa
+RUN apt update
+
+# Python指定バージョンインストール
+RUN apt install -y python${PYTHON_VERSION} python${PYTHON_VERSION}-venv python${PYTHON_VERSION}-dev
+
+# alternativesでバージョンを設定、切り替え
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.13 10
+RUN update-alternatives --set python /usr/bin/python3.13
+
+#================================================================================
+# アプリケーション実行ユーザー作成
+#================================================================================
+# appuserユーザー作成
+RUN groupadd -g ${APPUSER_GID} ${APPUSER_NAME}
+RUN useradd -u ${APPUSER_GID} -g ${APPUSER_NAME} -m ${APPUSER_NAME} -s /bin/bash
+RUN echo 'appuser:Abcd1234!' |chpasswd
+# RUN echo "appuser ALL=(ALL)  ALL" >> /etc/sudoers.d/appuser
+
+RUN apt install -y sudo
+# RUN /bin/cp -Ra /etc/sudoers /etc/sudoers.org
+RUN echo "${APPUSER_NAME} ALL=(ALL)  ALL" >> /etc/sudoers.d/${APPUSER_NAME}
+
+RUN cat /etc/sudoers.d/${APPUSER_NAME}
+
+RUN ls -l /home/
+
+#================================================================================
+# アプリケーション実行ユーザーのホームディレクトリにアップロード、所有者変更
+#================================================================================
+# requirements.txt
+COPY ./jupyter/requirements.txt /home/${APPUSER_NAME}/requirements.txt
+RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/requirements.txt
+
+# jupyter.sh
+COPY ./jupyter/jupyter.sh /home/${APPUSER_NAME}/jupyter.sh
+RUN chown ${APPUSER_NAME}:${APPUSER_NAME} /home/${APPUSER_NAME}/jupyter.sh
+
+#================================================================================
+# アプリケーション実行ユーザーに切り替え
+#================================================================================
+USER ${APPUSER_NAME}
+
+#================================================================================
+# pipパッケージインストール
+#================================================================================
+RUN python -m venv ~/.venv/
+RUN . ~/.venv/bin/activate && pip install --upgrade pip==${PIP_VERSION}
+RUN . ~/.venv/bin/activate && pip install -r ~/requirements.txt
+
+#================================================================================
+# 起動スクリプトコピー
+#================================================================================
+RUN ls -l ~/
+RUN chmod a+x ~/jupyter.sh
+
+#================================================================================
+# 結果出力
+#================================================================================
+RUN echo "--------------------------------------------------"
+RUN echo "ビルドが完了しました。"
+RUN echo "--------------------------------------------------"
+RUN echo "pythonバージョン："
+RUN python -V
+RUN echo "--------------------------------------------------"
+RUN echo "pipバージョン："
+RUN . ~/.venv/bin/activate && pip -V
+RUN echo "--------------------------------------------------"
+RUN echo "インストールされたpipパッケージ"
+RUN . ~/.venv/bin/activate && pip freeze
