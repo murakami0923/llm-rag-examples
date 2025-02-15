@@ -14,6 +14,13 @@
   - [現在のUID、GIDを調べる](#現在のuidgidを調べる)
   - [aws認証ファイルを作る](#aws認証ファイルを作る)
   - [.envファイルを作る](#envファイルを作る)
+- [使い方](#使い方)
+  - [初回](#初回)
+    - [docker-compose.ymlの作成](#docker-composeymlの作成)
+    - [Dockerコンテナイメージのビルド](#dockerコンテナイメージのビルド)
+  - [毎回](#毎回)
+    - [コンテナの起動](#コンテナの起動)
+    - [コンテナの終了](#コンテナの終了)
 
 # 概要
 ## コンテナ
@@ -111,5 +118,51 @@ aws configure
 - PYTHON_VERSION
 - PIP_VERSION
 
+# 使い方
+## 初回
+### docker-compose.ymlの作成
+
+GPUがあり、CUDA Toolkit、NVIDIAドライバがインストールされている環境の場合：
+
+```bash
+ln -s docker-compose.gpu.yml docker-compose.yml
+```
+
+GPUなし、上記ドライバ等のインストールがない場合：
+
+```bash
+ln -s docker-compose.cpu.yml docker-compose.yml
+```
+
+### Dockerコンテナイメージのビルド
+
+```bash
+./docker-compose-build.sh
+```
+
+## 毎回
+### コンテナの起動
+
+```bash
+./docker-compose-re-up.sh
+```
+
+【注意】
+
+最初に起動する際、venv仮想環境作成、pipパッケージのインストールのため、非常に時間がかかります。
+
+※下記の作者の環境では30分ほどかかりました。
+
+- CPU : Intel(R) Core(TM) i5-10300H CPU @ 2.50GHZ 4コア・8論理プロセッサ
+- GPU：NVIDIA GeForce RTX 2060
+- RAM：16.0GB
+- OS：Windows 11 Home
+- Linux：WSL 2 / Ubuntu 24.04
+
+### コンテナの終了
+
+```bash
+./docker-compose-down.sh
+```
 
 
