@@ -129,12 +129,12 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+# .venv
 env/
 venv/
 ENV/
 env.bak/
-venv.bak/
+# venv.bak/
 
 # Spyder project settings
 .spyderproject
@@ -175,4 +175,6 @@ cython_debug/
 .aws/*
 !.aws/.gitkeep
 
-
+## .venv （デフォルトであったものから変更）
+.venv/*
+!.venv/.gitkeep
