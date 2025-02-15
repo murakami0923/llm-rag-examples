@@ -182,6 +182,7 @@ docker-compose.yml
 ## .venv （デフォルトであったものから変更）
 .venv/*
 !.venv/.gitkeep
+.venv.*.tar.gz
 
 ## jupyter
 ### 出力先
