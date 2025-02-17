@@ -184,6 +184,14 @@ docker-compose.yml
 !.venv/.gitkeep
 .venv.*.tar.gz
 
+## ollama
+### データ
+ollama/data/*
+!ollama/data/.gitkeep
+**/*.gguf*
+ollama/work/Llama-3-ELYZA-JP-8B/Modelfile
+
+
 ## jupyter
 ## ゴミ箱
 jupyter/notebooks/.Trash-*/*
