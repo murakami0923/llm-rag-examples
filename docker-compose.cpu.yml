@@ -1,4 +1,13 @@
 services:
+  ollama:
+    image: ollama/ollama:0.5.7
+    container_name: llm-rag-examples-ollama
+    hostname: llm-rag-examples-ollama
+    ports:
+      - 11434:11434
+    volumes:
+      - ./ollama/data:/root/.ollama
+      - ./ollama/work:/root/work
   jupyter:
     build:
       context: .
