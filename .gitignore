@@ -185,6 +185,9 @@ docker-compose.yml
 .venv.*.tar.gz
 
 ## jupyter
+## ゴミ箱
+jupyter/notebooks/.Trash-*/*
+
 ### 出力先
 jupyter/notebooks/output/*
 !jupyter/notebooks/output/.gitkeep
