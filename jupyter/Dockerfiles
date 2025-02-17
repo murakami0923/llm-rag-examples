@@ -40,7 +40,7 @@ RUN update-alternatives --set python /usr/bin/python3.13
 # appuserユーザー作成
 RUN groupadd -g ${APPUSER_GID} ${APPUSER_NAME}
 RUN useradd -u ${APPUSER_GID} -g ${APPUSER_NAME} -m ${APPUSER_NAME} -s /bin/bash
-RUN echo 'appuser:Abcd1234!' |chpasswd
+RUN echo "${APPUSER_NAME}:Abcd1234!" |chpasswd
 # RUN echo "appuser ALL=(ALL)  ALL" >> /etc/sudoers.d/appuser
 
 RUN apt install -y sudo
