@@ -41,6 +41,7 @@ services:
       - APPUSER_NAME=${APPUSER_NAME}
       - AWS_PROFILE=${AWS_PROFILE}
       - PIP_VERSION=${PIP_VERSION}
+      - BACKLOG_API_KEY=${BACKLOG_API_KEY}
     command:
       - /home/${APPUSER_NAME}/startup.sh
     deploy:
