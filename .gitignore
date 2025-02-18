@@ -199,3 +199,7 @@ jupyter/notebooks/.Trash-*/*
 ### 出力先
 jupyter/notebooks/output/*
 !jupyter/notebooks/output/.gitkeep
+
+### Backlog wiki
+jupyter/notebooks/backlog-wikis/*
+!jupyter/notebooks/backlog-wikis/.gitkeep
