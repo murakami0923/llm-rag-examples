@@ -5,8 +5,3 @@ echo "5秒待ちます"
 sleep 5
 echo "upします"
 docker compose up -d
-
-echo "10秒待ちます"
-sleep 10
-echo "jupyterコンテナのログを出力します"
-docker logs llm-rag-examples-jupyter
