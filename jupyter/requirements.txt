@@ -24,6 +24,9 @@ chromadb===0.6.3
 # LangChain Ollama
 langchain-ollama==0.2.2
 
+# Excel保存用
+openpyxl==3.1.5
+
 # Bedrock
 langchain-aws==0.2.12
 # amazon-bedrock==0.0.5 # profileを指定して接続できないため、無効化
