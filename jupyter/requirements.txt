@@ -4,6 +4,7 @@ pip-autoremove==0.10.0
 # JupyterLab
 jupyterlab==4.3.4
 jupyterlab-lsp==5.1.0
+jupyterlab-codeium==0.1.1
 
 # 基本パッケージ
 setuptools==75.8.0
