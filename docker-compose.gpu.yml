@@ -42,9 +42,6 @@ services:
       - AWS_PROFILE=${AWS_PROFILE}
       - PIP_VERSION=${PIP_VERSION}
       - BACKLOG_API_KEY=${BACKLOG_API_KEY}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     command:
       - /home/${APPUSER_NAME}/startup.sh
     deploy:
@@ -54,18 +51,4 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-  mysql:
-    image: mysql:9.2.0
-    container_name: llm-rag-examples-mysql
-    hostname: llm-rag-examples-mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - TZ=${MYSQL_TZ}
-    ports:
-      - 3306:3306
-    volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/init-db:/root/init-db
+    
