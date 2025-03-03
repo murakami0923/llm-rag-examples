@@ -203,3 +203,7 @@ jupyter/notebooks/output/*
 ### Backlog wiki
 jupyter/notebooks/backlog-wikis/*
 !jupyter/notebooks/backlog-wikis/.gitkeep
+
+## MySQL
+mysql/data/*
+!mysql/data/.gitkeep
