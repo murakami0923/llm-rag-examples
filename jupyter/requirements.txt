@@ -34,3 +34,6 @@ langchain-aws==0.2.12
 
 # AWS
 awscli==1.37.21 # ※langchain-awsで依存性エラーになる可能性があるので、langchain-awsより後に書く
+
+# MySQL（ベクトルデータベースとして使う）
+mysql-connector-python==9.2.0
