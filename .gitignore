@@ -207,3 +207,7 @@ jupyter/notebooks/backlog-wikis/*
 ## MySQL
 mysql/data/*
 !mysql/data/.gitkeep
+
+# Solr
+solr/data/*
+!solr/data/.gitkeep
