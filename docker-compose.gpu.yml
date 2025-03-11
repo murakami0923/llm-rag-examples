@@ -69,3 +69,15 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/init-db:/root/init-db
+
+  solr:
+    image: solr:9.8.0
+    container_name: llm-rag-examples-solr
+    hostname: llm-rag-examples-solr
+    ports:
+      - 8983:8983
+    volumes:    
+      - ./solr/data:/var/solr
+    command:
+      - solr-precreate
+      - gettingstarted
