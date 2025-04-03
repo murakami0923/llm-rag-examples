@@ -41,3 +41,6 @@ awscli==1.37.21 # ※langchain-awsで依存性エラーになる可能性があ�
 
 # MySQL（ベクトルデータベースとして使う）
 mysql-connector-python==9.2.0
+
+# Solr（ベクトルデータベースとして使う）
+eurelis-langchain-solr-vectorstore==0.0.3
