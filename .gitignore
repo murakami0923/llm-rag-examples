@@ -207,3 +207,7 @@ jupyter/notebooks/backlog-wikis/*
 ## MySQL
 mysql/data/*
 !mysql/data/.gitkeep
+
+## ElasticSearch
+elasticsearch/esdata1/*
+!elasticsearch/esdata1/.gitkeep
