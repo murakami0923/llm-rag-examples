@@ -41,3 +41,7 @@ awscli==1.37.21 # ※langchain-awsで依存性エラーになる可能性があ�
 
 # MySQL（ベクトルデータベースとして使う）
 mysql-connector-python==9.2.0
+
+# ElasticSearch
+sentence-transformers==4.1.0
+elasticsearch==9.0.0
