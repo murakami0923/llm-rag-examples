@@ -44,4 +44,4 @@ mysql-connector-python==9.2.0
 
 # ElasticSearch
 sentence-transformers==4.1.0
-elasticsearch==9.0.0
+elasticsearch8==8.18.0
