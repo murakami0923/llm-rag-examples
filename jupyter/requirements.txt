@@ -7,7 +7,7 @@ jupyterlab-lsp==5.1.0
 jupyterlab-codeium==0.1.1
 
 # 基本パッケージ
-setuptools==75.8.0
+setuptools==78.1.1
 pandas==2.2.3
 matplotlib==3.10.0
 japanize-matplotlib==1.1.3
