@@ -229,7 +229,7 @@ cd ./ollama/
 ### コンテナの起動
 
 ```bash
-./docker-compose-re-up.sh
+./compose-reup.sh
 ```
 
 【注意】
@@ -272,7 +272,7 @@ http://127.0.0.1:8888/lab?token=************************************************
 コンテナを使い終わったら、
 
 ```bash
-./docker-compose-down.sh
+./compose-down.sh
 ```
 
 で終了します。
