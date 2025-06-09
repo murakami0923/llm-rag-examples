@@ -12,4 +12,4 @@ pip install --upgrade pip==${PIP_VERSION}
 pip install -r ~/requirements.txt
 
 echo "Jupyter Labを起動します。"
-jupyter-lab --port 8888 --ip 0.0.0.0 --notebook-dir=~/notebooks/
+jupyter-lab --port 8888 --ip 0.0.0.0 --NotebookApp.token=${JUPYTER_TOKEN} --notebook-dir=~/notebooks/
