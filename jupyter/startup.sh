@@ -8,8 +8,8 @@ echo "venvを有効化します。"
 source ~/.venv/bin/activate
 
 echo "pipパッケージをインストールします。（時間がかかることがあります。）"
-pip install --upgrade pip==${PIP_VERSION}
-pip install -r ~/requirements.txt
+pip3 install --upgrade pip==${PIP_VERSION}
+pip3 install -r ~/requirements.txt
 
 echo "Jupyter Labを起動します。"
 jupyter-lab --port 8888 --ip 0.0.0.0 --NotebookApp.token=${JUPYTER_TOKEN} --notebook-dir=~/notebooks/
