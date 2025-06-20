@@ -30,6 +30,10 @@ The project uses Docker Compose with 5 main services:
    - Security disabled for development
    - Port: 9200
 
+5. **Solr Container** (`llm-rag-examples-solr`)
+   - Solr 9.8.1 for vector search
+   - Port: 8983
+
 5. **Kibana Container** (`llm-rag-examples-kibana`)
    - Kibana 8.18.0 for Elasticsearch visualization
    - Port: 5601
@@ -40,6 +44,7 @@ The project uses Docker Compose with 5 main services:
 - **ChromaDB**: In-memory vector database for quick prototyping
 - **MySQL 9.x**: Traditional database with vector search capabilities
 - **Elasticsearch**: Full-text and vector search engine
+- **Solr**: Full-text and vector search engine
 
 #### LLM Integration
 - **Amazon Bedrock**: Cloud-based LLM services via AWS
@@ -80,6 +85,8 @@ The project uses Docker Compose with 5 main services:
 │   └── data/                      # MySQL data directory (persistent)
 ├── elasticsearch/
 │   └── esdata1/                   # Elasticsearch data (persistent)
+├── solr
+│   └── data/                      # Solr data (persistent)
 └── ollama/
     ├── data/                      # Ollama models and data
     └── models.txt                 # List of available models
