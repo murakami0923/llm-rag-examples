@@ -211,3 +211,7 @@ mysql/data/*
 ## ElasticSearch
 elasticsearch/esdata1/*
 !elasticsearch/esdata1/.gitkeep
+
+# Solr
+solr/data/*
+!solr/data/.gitkeep

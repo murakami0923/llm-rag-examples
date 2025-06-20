@@ -98,3 +98,13 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch1
+  solr:
+    image: solr:9.8.1
+    container_name: llm-rag-examples-solr
+    hostname: llm-rag-examples-solr
+    ports:
+      - "8983:8983"
+    volumes:
+      - ./solr/data:/var/solr/data
+    environment:
+      - SOLR_HEAP=512m
