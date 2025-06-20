@@ -74,6 +74,7 @@ The project uses Docker Compose with 5 main services:
 │       ├── chromadb-ex*.ipynb      # ChromaDB examples
 │       ├── elasticsearch-vector-ex*.ipynb # Elasticsearch examples
 │       ├── mysql9-vector-ex*.ipynb # MySQL vector examples
+│       ├── solr-vector-ex*.ipynb   # Solr vector examples
 │       ├── bedrock-api-ex*.ipynb   # AWS Bedrock examples
 │       ├── backlog-*.ipynb         # Backlog API integration examples
 │       ├── input/                  # Sample input files
@@ -106,6 +107,7 @@ The project uses Docker Compose with 5 main services:
 ### Database Connectors
 - **mysql-connector-python**: 9.2.0 - MySQL connectivity
 - **elasticsearch8**: 8.18.0 - Elasticsearch client
+- **pysolr**: 3.10.0 - Solr client
 
 ### Utilities
 - **pandas**: 2.2.3 - Data manipulation
@@ -167,6 +169,11 @@ The project demonstrates three main vector database patterns:
    - RESTful API and Python client approaches
    - Full-text and vector hybrid search
    - Index management and mappings
+
+4. **Solr Pattern** (solr-vector-ex01-*.ipynb):
+   - kNN vector search capabilities
+   - Collection and schema management via REST API
+   - Dense vector storage with cosine similarity
 
 ### LLM Integration Patterns
 - **AWS Bedrock**: Cloud-based LLM access with profile-based authentication
