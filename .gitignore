@@ -215,3 +215,7 @@ elasticsearch/esdata1/*
 # Solr
 solr/data/*
 !solr/data/.gitkeep
+
+# pgvector
+pgvector/data
+!pgvector/data/.gitkeep
