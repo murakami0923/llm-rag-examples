@@ -24,19 +24,23 @@ The project uses Docker Compose with 5 main services:
    - Port: 11434
    - Supports GPU acceleration (when available)
 
-4. **Elasticsearch Container** (`llm-rag-examples-elasticsearch1`)
+<!-- 4. **Elasticsearch Container** (`llm-rag-examples-elasticsearch1`)
    - Elasticsearch 8.18.0 for vector search
    - Single-node deployment
    - Security disabled for development
    - Port: 9200
 
-5. **Solr Container** (`llm-rag-examples-solr`)
+5. **Kibana Container** (`llm-rag-examples-kibana`)
+   - Kibana 8.18.0 for Elasticsearch visualization
+   - Port: 5601 -->
+
+4. **Solr Container** (`llm-rag-examples-solr`)
    - Solr 9.8.1 for vector search
    - Port: 8983
 
-5. **Kibana Container** (`llm-rag-examples-kibana`)
-   - Kibana 8.18.0 for Elasticsearch visualization
-   - Port: 5601
+5. **pgvector container** (`llm-rag-examples-pgvector`)
+   - pgvector pg17 for vector search
+   - Port: 5432
 
 ### Supported Technologies
 
@@ -45,6 +49,7 @@ The project uses Docker Compose with 5 main services:
 - **MySQL 9.x**: Traditional database with vector search capabilities
 - **Elasticsearch**: Full-text and vector search engine
 - **Solr**: Full-text and vector search engine
+- **pgvector**: Relation database with vector search capabilities
 
 #### LLM Integration
 - **Amazon Bedrock**: Cloud-based LLM services via AWS
@@ -108,6 +113,7 @@ The project uses Docker Compose with 5 main services:
 - **mysql-connector-python**: 9.2.0 - MySQL connectivity
 - **elasticsearch8**: 8.18.0 - Elasticsearch client
 - **pysolr**: 3.10.0 - Solr client
+- **psycopg2-binary**: 2.9.10 - PostgreSQL connectivity for pgvector
 
 ### Utilities
 - **pandas**: 2.2.3 - Data manipulation
@@ -165,15 +171,20 @@ The project demonstrates three main vector database patterns:
    - Custom embedding table schema
    - SQL-based vector operations
 
-3. **Elasticsearch Pattern** (elasticsearch-vector-ex*.ipynb):
+<!-- 3. **Elasticsearch Pattern** (elasticsearch-vector-ex*.ipynb):
    - RESTful API and Python client approaches
    - Full-text and vector hybrid search
-   - Index management and mappings
+   - Index management and mappings -->
 
-4. **Solr Pattern** (solr-vector-ex01-*.ipynb):
+3. **Solr Pattern** (solr-vector-ex01-*.ipynb):
    - kNN vector search capabilities
    - Collection and schema management via REST API
    - Dense vector storage with cosine similarity
+
+4. **pgvector Pattern** (pgvector-ex01-*.ipynb)
+   - Persistent vector storage in pgvector
+   - Custom embedding table schema
+   - SQL-based vector operations
 
 ### LLM Integration Patterns
 - **AWS Bedrock**: Cloud-based LLM access with profile-based authentication
