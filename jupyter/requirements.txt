@@ -51,3 +51,6 @@ pysolr==3.10.0
 
 # pgvector（PostgreSQLベクトルデータベース）
 psycopg2-binary==2.9.10
+
+# ----- CAG -----
+redis==6.2.0
