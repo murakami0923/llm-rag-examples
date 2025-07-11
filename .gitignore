@@ -217,5 +217,10 @@ solr/data/*
 !solr/data/.gitkeep
 
 # pgvector
-pgvector/data
+pgvector/data/*
 !pgvector/data/.gitkeep
+
+# ----- CAG -----
+# redis
+redis/data/*
+!redis/data/.gitkeep
