@@ -47,3 +47,10 @@ MODEL=tomasmcm/openelm:3b-intruct-q5_K_M
 ```bash
 MODEL=gemma:2b
 ```
+
+
+## Gemma 3 
+
+```bash
+MODEL=gemma3:4b
+```
