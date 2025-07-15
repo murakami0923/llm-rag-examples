@@ -3,9 +3,9 @@ MODEL=*****
 
 CONTAINER=llm-rag-examples-ollama
 
-docker exec -ti ${CONTAINER} docker pull ${MODEL}
+docker exec -ti ${CONTAINER} ollama pull ${MODEL}
 
-docker exec -ti ${CONTAINER} docker run ${MODEL}
+docker exec -ti ${CONTAINER} ollama run ${MODEL}
 ```
 
 # LLM
