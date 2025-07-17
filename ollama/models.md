@@ -50,3 +50,4 @@ export MODEL=gemma3:4b
 ```bash
 export MODEL=yuiseki/tinyswallow:1.5b
 ```
+
