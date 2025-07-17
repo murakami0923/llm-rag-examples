@@ -44,3 +44,9 @@ export MODEL=gemma:2b
 ```bash
 export MODEL=gemma3:4b
 ```
+
+## TinySwallow-1.5B	(Sakana AI)
+
+```bash
+export MODEL=yuiseki/tinyswallow:1.5b
+```
