@@ -38,7 +38,6 @@ export MODEL=tomasmcm/openelm:3b-intruct-q5_K_M
 export MODEL=gemma:2b
 ```
 
-
 ## Gemma 3 
 
 ```bash
@@ -58,3 +57,9 @@ export MODEL=7shi/ezo-gemma-2-jpn:2b-instruct-q8_0
 ```
 
 > エントリークラスのGPUや、モバイルGPUでも十分実用的な速度で動作します。現状で日本語をまともに扱えるSLMはgemm2-jpn（2B）一択です。
+
+## gpt-oss [gpt-oss が登場](https://openai.com/ja-JP/index/introducing-gpt-oss/)
+
+```bash
+export MODEL=gpt-oss:20b
+```
