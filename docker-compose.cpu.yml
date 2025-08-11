@@ -1,6 +1,6 @@
 services:
   ollama:
-    image: ollama/ollama:0.9.6
+    image: ollama/ollama:0.11.4
     container_name: llm-rag-examples-ollama
     hostname: llm-rag-examples-ollama
     ports:
